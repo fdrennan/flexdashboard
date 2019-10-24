@@ -100,7 +100,7 @@ renderValueBox({
 })
 ```
 
-Row
+Row {data-height=650}
 -----------------------------------------------------------------------
 
 ### Popularity by package (last 5 min) {data-width=700}
@@ -121,6 +121,24 @@ renderBubbles({
   bubbles(df$n, df$package, key = df$package)
 })
 ```
+
+### Unique users {.value-box}
+
+```{r}
+# usrCount is a reactive expression that keeps an approximate
+# count of all of the unique users that have been seen since the
+# app started.
+usrCount <- userCount(pkgStream)
+
+# Emit the user count
+renderValueBox({
+  valueBox(value = usrCount(), icon = "fa-users")
+})
+```
+
+
+Row }
+-----------------------------------------------------------------------
 
 ### Percent of downloads (last 5 min) {data-width=340}
 
